@@ -19,6 +19,10 @@ public class Customer {
         this.isValidCpf = isValidCpf;
     }
 
+    public Customer() {
+
+    }
+
     public String getId() {
         return id;
     }
