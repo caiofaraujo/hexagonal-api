@@ -1,9 +1,10 @@
 package com.codeline.hexagonal.application.core.usecase;
 
+import com.codeline.hexagonal.application.ports.in.DeleteCustomerInputPort;
 import com.codeline.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.codeline.hexagonal.application.ports.out.DeleteCustomerOutputPort;
 
-public class DeleteCustomerUseCase {
+public class DeleteCustomerUseCase implements DeleteCustomerInputPort {
 
     DeleteCustomerOutputPort deleteCustomerOutputPort;
     FindCustomerByIdInputPort findCustomerByIdInputPort;
@@ -14,7 +15,8 @@ public class DeleteCustomerUseCase {
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
     }
 
-    void delete (String id) {
+    @Override
+    public void delete (String id) {
         findCustomerByIdInputPort.find(id);
         deleteCustomerOutputPort.delete(id);
     }
