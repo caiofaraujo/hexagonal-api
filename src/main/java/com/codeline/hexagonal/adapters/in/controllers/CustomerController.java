@@ -3,8 +3,10 @@ package com.codeline.hexagonal.adapters.in.controllers;
 import com.codeline.hexagonal.adapters.in.controllers.mapper.CustomerMapper;
 import com.codeline.hexagonal.adapters.in.controllers.request.CustomerRequest;
 import com.codeline.hexagonal.adapters.in.controllers.response.CustomerResponse;
+import com.codeline.hexagonal.application.core.domain.Customer;
 import com.codeline.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.codeline.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.codeline.hexagonal.application.ports.in.UpdateCustomerInputPort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class CustomerController {
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
 
     @Autowired
+    private UpdateCustomerInputPort updateCustomerInputPort;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -32,5 +37,14 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse> findById(@PathVariable("id") String id) {
         return ResponseEntity.ok().body(customerMapper.toCustomerResponse(findCustomerByIdInputPort.find(id)));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable("id") String id,
+                                       @Valid @RequestBody CustomerRequest customerRequest) {
+        var customer = customerMapper.toCustomer(customerRequest);
+        customer.setId(id);
+        updateCustomerInputPort.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.noContent().build();
     }
 }
