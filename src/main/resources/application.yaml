@@ -1,8 +1,13 @@
 codeline:
   client:
     address:
-      url: http://localhost:8082/addresses
+      url: https://codeline.free.beeceptor.com/address
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/hexagonal
+      host: localhost
+      port: 27017
+      authentication-databse: admin
+      username: root
+      password: example
+      database: hexagonal
