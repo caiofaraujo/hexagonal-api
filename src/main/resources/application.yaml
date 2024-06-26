@@ -1,13 +1,17 @@
+server:
+  port: 8081
+
 codeline:
   client:
     address:
       url: https://codeline.free.beeceptor.com/address
+
 spring:
   data:
     mongodb:
       host: localhost
       port: 27017
-      authentication-databse: admin
+      authentication-database: admin
       username: root
       password: example
-      database: hexagonal
+      database: codeline
