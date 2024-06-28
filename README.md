@@ -3,17 +3,17 @@
 Aplicação exemplo de Arquitetura Hexagonal/Ports and Adapters para fins de estudo.
 
 ## Workflow
-![Texto Alternativo](./img/workflow.png)
+![](./img/workflow.png)
 
 ## Stack utilizada
 **Back-end:** JDK 17, Spring Boot 3.2.3, Maven, Docker, Mongo DB (Docker), Kafka (Docker)
 
 ## O que é Arquitetura Hexagonal?
 Arquitetura Hexagonal, também conhecida como Ports and Adapters, é um padrão de design de software que visa criar componentes de software desacoplados e facilmente testáveis. Essa arquitetura prevê a divisão do sistema em camadas lógicas, com as regras de negócios no centro e os detalhes técnicos nas camadas externas.
-![](/Users/caiozin/codeline/api/hexagonal/img/ports_adapters.png)
+![](./img/ports_adapters.png)
 
 ## Estrutura de Pastas
-![](/Users/caiozin/codeline/api/hexagonal/img/folder-structure.png)
+![](./img/folder-structure.png)
 
 ## Funcionalidades
 
