@@ -3,7 +3,7 @@
 Aplicação exemplo de Arquitetura Hexagonal/Ports and Adapters para fins de estudo.
 
 ## Workflow
-![](/Users/caiozin/codeline/api/hexagonal/img/workflow.png)
+![Texto Alternativo](./img/workflow.png)
 
 ## Stack utilizada
 **Back-end:** JDK 17, Spring Boot 3.2.3, Maven, Docker, Mongo DB (Docker), Kafka (Docker)
